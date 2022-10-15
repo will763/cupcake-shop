@@ -76,7 +76,7 @@ dist/
 
 # github files 
 
-.github
+./.github/
 
 # environment variables
 
