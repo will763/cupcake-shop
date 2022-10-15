@@ -74,6 +74,10 @@ dist/
 
 # @end expo-cli]
 
+# github files 
+
+.github
+
 # environment variables
 
 .env
