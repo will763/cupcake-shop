@@ -84,3 +84,4 @@ dist/
 
 .env
 /.github
+/eas.json
