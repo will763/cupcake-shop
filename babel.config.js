@@ -11,7 +11,8 @@ module.exports = function(api) {
       ["module-resolver", {
         alias: { 
           components: './src/components',
-          screens: './src/screens' 
+          screens: './src/screens',
+          config: './src/config' 
         } 
       }]
     ],
