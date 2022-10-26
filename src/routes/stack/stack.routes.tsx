@@ -1,10 +1,10 @@
 import { createNativeStackNavigator, NativeStackScreenProps } from "@react-navigation/native-stack";
 
-import  {Login} from '../../screens/Login'
+import  Login from '../../screens/Login/View'
 import  {Signup} from '../../screens/Signup'
 import { Feedback } from "../../screens/Feedback";
 import { RegisterProduct } from "../../screens/RegisterProduct";
-import { Product } from "../../screens/Product";
+import { Product } from "screens/Product";
 import Drawer from '../drawer'
 
 import Logo from '../../components/LogoDrawer'  
