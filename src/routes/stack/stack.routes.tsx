@@ -1,7 +1,7 @@
 import { createNativeStackNavigator, NativeStackScreenProps } from "@react-navigation/native-stack";
 
 import  Login from '../../screens/Login/View'
-import  {Signup} from '../../screens/Signup'
+import  Signup from 'screens/Signup/view'
 import { Feedback } from "../../screens/Feedback";
 import { RegisterProduct } from "../../screens/RegisterProduct";
 import { Product } from "screens/Product";
