@@ -1,5 +1,3 @@
+import { auth } from "config/firebase.config";
 
-export interface ILogin {
-    email: string,
-    password: string
-}
+export type Login = auth.UserCredential;

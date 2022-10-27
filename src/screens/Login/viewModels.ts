@@ -1,8 +1,9 @@
-import { loginWithEmailAndPassword } from "./services";
+import { auth, authApp } from "config/firebase.config";
+import { Login } from "./model";
 
 const useLoginViewModel = () => {
-    async function newLogin(email: string, password: string) {
-        return loginWithEmailAndPassword({ email, password });
+    async function newLogin(email: string, password: string): Promise<Login> {
+        return auth.signInWithEmailAndPassword(authApp, email, password);
     }
 
     return {
