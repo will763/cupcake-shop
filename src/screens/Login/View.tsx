@@ -23,17 +23,19 @@ import {
 
 import Logo from 'components/Logo'      
 import useLoginViewController from './viewController';
+import { Controller, useForm } from 'react-hook-form';
+import { FormValues } from './types';
 
 export default function Login() {
   
   const { 
     hide, 
-    setEmail, 
     setHide, 
-    setPassword, 
     toSignup,  
-    login 
+    onSubmit
   } = useLoginViewController();
+
+  const { control, handleSubmit } = useForm<FormValues>();
 
   return (
     <Container >
@@ -46,28 +48,40 @@ export default function Login() {
       <ContainerContent>
       <Logo />
       <Form>
-        <InputContainer>
-          <Icon name="user-alt" size={24} />
-          <Input 
+        <Controller 
+         control={control}
+         name='email'
+         render={({ field: { onChange, value } }) => (
+          <InputContainer>
+           <Icon name="user-alt" size={24} />
+           <Input 
             placeholder={'E-mail'}  
-            onChangeText={(email:string) => setEmail(email)} 
-          />
-        </InputContainer>
-
-        <InputContainer>
-          <Icon name="lock" size={24} />
-          <Input 
-           placeholder={'Password'} 
-           secureTextEntry={hide} 
-           onChangeText={(password:string) => setPassword(password)} 
-          />
-          <TouchableOpacity onPress={()=> setHide(!hide)} >
-            { hide ? <Icon name="eye" size={18} /> 
-             : <Icon name="eye-slash" size={18} /> }
-          </TouchableOpacity>
-        </InputContainer> 
-
-        <Button onPress={login} >
+            onChangeText={onChange} 
+            value={value}
+           />
+          </InputContainer>
+         )}
+        />
+        <Controller 
+         control={control}
+         name='password'
+         render={({ field: { onChange, value } }) => (
+          <InputContainer>
+           <Icon name="lock" size={24} />
+           <Input 
+            placeholder={'Password'} 
+            secureTextEntry={hide} 
+            onChangeText={onChange}
+            value={value} 
+           />
+           <TouchableOpacity onPress={()=> setHide(!hide)} >
+             { hide ? <Icon name="eye" size={18} /> 
+              : <Icon name="eye-slash" size={18} /> }
+           </TouchableOpacity>
+          </InputContainer> 
+         )}
+        />
+        <Button onPress={handleSubmit(onSubmit)} >
           <TextButton>Login</TextButton>
         </Button>
         <ForgoutPassword>
