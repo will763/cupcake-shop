@@ -1,6 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 import { showMessage } from "react-native-flash-message";
+import { FormValues } from "./types";
 import useLoginViewModel from "./viewModels";
 
 
@@ -57,7 +58,7 @@ const useLoginViewController = () => {
 
   }
 
-  function login() {
+  function onSubmit({ email, password }: FormValues) {
     if (email === '' || password === '') {
       loginError('fields are empty')
       return;
@@ -65,19 +66,16 @@ const useLoginViewController = () => {
 
     newLogin(email, password)
       .then(() => loginSuccess())
-      .catch(({ message }) => loginError(message))
+      .catch(({ message }) => loginError(message));
+
   }
 
 
   return {
     hide,
-    email,
-    password,
     setHide,
-    setEmail,
-    setPassword,
     toSignup,
-    login
+    onSubmit
   }
 }
 
