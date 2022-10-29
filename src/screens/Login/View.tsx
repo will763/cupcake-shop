@@ -23,8 +23,7 @@ import {
 
 import Logo from 'components/Logo'      
 import useLoginViewController from './viewController';
-import { Controller, useForm } from 'react-hook-form';
-import { FormValues } from './types';
+import { Controller } from 'react-hook-form';
 
 export default function Login() {
   
@@ -32,10 +31,10 @@ export default function Login() {
     hide, 
     setHide, 
     toSignup,  
-    onSubmit
+    control,
+    submitForm
   } = useLoginViewController();
 
-  const { control, handleSubmit } = useForm<FormValues>();
 
   return (
     <Container >
@@ -81,7 +80,7 @@ export default function Login() {
           </InputContainer> 
          )}
         />
-        <Button onPress={handleSubmit(onSubmit)} >
+        <Button onPress={submitForm} >
           <TextButton>Login</TextButton>
         </Button>
         <ForgoutPassword>
