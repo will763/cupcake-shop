@@ -1,81 +1,49 @@
 import { useNavigation } from "@react-navigation/native";
-import { useState } from "react";
-import { showMessage } from "react-native-flash-message";
+import { useEffect, useState } from "react";
 import { FormValues } from "./types";
 import useLoginViewModel from "./viewModels";
-
+import LoginSuccess from "components/LoginSuccess";
+import { handleErrors, triggerError } from "components/LoginError";
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from "react-hook-form";
+import { schema } from "./validation";
 
 const useLoginViewController = () => {
   const navigation = useNavigation();
 
   const { newLogin } = useLoginViewModel();
 
+  const { control, handleSubmit, formState: { errors } } = useForm<FormValues>({
+    resolver: yupResolver(schema)
+  });
+
+  useEffect(() => {
+    errors && handleErrors(errors)
+  }, [errors])
+
   const [hide, setHide] = useState(true);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
 
   function toSignup() {
     navigation.navigate('signup');
   }
 
-  function loginSuccess() {
-    setEmail('');
-    setPassword('');
-
-    showMessage({
-      message: "Login Successfully",
-      type: "success",
-      titleStyle: { fontSize: 18 },
-      duration: 1700
-    });
-
-    const id = setTimeout(() => {
-      navigation.navigate('home');
-    }, 2000);
-
-    return () => clearTimeout(id);
-  }
-
-  function loginError(message: string) {
-    type ObjectKey = keyof typeof loginErrorTypes;
-
-    const loginErrorTypes = {
-      "fields are empty": 'fill in all fields',
-      "Firebase: Error (auth/user-not-found).": 'user not found',
-      "Firebase: Error (auth/wrong-password).": 'wrong password',
-    }
-
-    showMessage({
-      message: "Login Error",
-      description: loginErrorTypes[message as ObjectKey] ?? "something went wrong",
-      type: "default",
-      backgroundColor: "#fefefe",
-      color: '#ff0000',
-      duration: 5000,
-      titleStyle: { fontSize: 18 },
-      hideOnPress: true,
-    });
-
-  }
-
   function onSubmit({ email, password }: FormValues) {
-    if (email === '' || password === '') {
-      loginError('fields are empty')
-      return;
-    }
-
     newLogin(email, password)
-      .then(() => loginSuccess())
-      .catch(({ message }) => loginError(message));
+      .then(() => {
+        LoginSuccess();
+      })
+      .catch(({ message }) => triggerError(message));
 
   }
 
+  const submitForm = handleSubmit(onSubmit);
 
   return {
     hide,
     setHide,
     toSignup,
-    onSubmit
+    submitForm,
+    control
   }
 }
 
