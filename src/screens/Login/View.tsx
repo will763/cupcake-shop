@@ -54,7 +54,8 @@ export default function Login() {
           <InputContainer>
            <Icon name="user-alt" size={24} />
            <Input 
-            placeholder={'E-mail'}  
+            keyboardType = "email-address"
+            placeholder={'Email'}  
             onChangeText={onChange} 
             value={value}
            />
