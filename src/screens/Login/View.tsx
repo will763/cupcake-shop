@@ -84,7 +84,7 @@ export default function Login() {
           <TextButton>Login</TextButton>
         </Button>
         <ForgoutPassword>
-          <TextMissing>Forgout password?</TextMissing>
+          <TextMissing>Forgot password?</TextMissing>
         </ForgoutPassword>
       </Form>
       <LoginSocial>
