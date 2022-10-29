@@ -15,7 +15,7 @@ export const ContainerContent = styled.View`
 export const Input = styled.TextInput`
   padding-right:8px ;
   width:80%;
-  height:50px;
+  height:55px;
   font-family:${(props) => props.theme.FONTS.POPPINS_REGULAR};
 `
 export const Form = styled.View`
