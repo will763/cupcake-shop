@@ -22,17 +22,21 @@ const useLoginViewController = () => {
   }, [errors])
 
   const [hide, setHide] = useState(true);
+  const [isLogging, setisLogging] = useState(false);
 
   function toSignup() {
     navigation.navigate('signup');
   }
 
   function onSubmit({ email, password }: FormValues) {
+    setisLogging(true);
+
     newLogin(email, password)
       .then(() => {
         LoginSuccess();
       })
-      .catch(({ message }) => triggerError(message));
+      .catch(({ message }) => triggerError(message))
+      .finally(() => setisLogging(false));
 
   }
 
@@ -43,7 +47,8 @@ const useLoginViewController = () => {
     setHide,
     toSignup,
     submitForm,
-    control
+    control,
+    isLogging
   }
 }
 

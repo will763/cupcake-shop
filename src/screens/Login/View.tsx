@@ -32,7 +32,8 @@ export default function Login() {
     setHide, 
     toSignup,  
     control,
-    submitForm
+    submitForm,
+    isLogging
   } = useLoginViewController();
 
 
@@ -41,7 +42,7 @@ export default function Login() {
      <KeyboardAvoidingView
       style={{flex:1}}
       behavior='height'  
-      keyboardVerticalOffset={30} 
+      keyboardVerticalOffset={10} 
      >
      <ScrollView>
       <ContainerContent>
@@ -81,7 +82,7 @@ export default function Login() {
           </InputContainer> 
          )}
         />
-        <Button onPress={submitForm} >
+        <Button onPress={submitForm} disabled={isLogging} >
           <TextButton>Login</TextButton>
         </Button>
         <ForgoutPassword>
