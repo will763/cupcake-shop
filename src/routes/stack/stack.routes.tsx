@@ -1,16 +1,16 @@
 import { createNativeStackNavigator, NativeStackScreenProps } from "@react-navigation/native-stack";
 
-import  Login from '../../screens/Login/View'
+import  Login from 'screens/Login/View'
 import  Signup from 'screens/Signup/view'
-import { Feedback } from "../../screens/Feedback";
-import { RegisterProduct } from "../../screens/RegisterProduct";
+import { Feedback } from "screens/Feedback";
+import { RegisterProduct } from "screens/RegisterProduct";
 import { Product } from "screens/Product";
 import Drawer from '../drawer'
 
-import Logo from '../../components/LogoDrawer'  
+import Logo from 'components/LogoDrawer'  
 import React, { useContext, useEffect, useState } from "react";
-import { authApp } from "../../config/firebase.config";
-import SplashScreen from "../../components/SplashScreen";
+import { authApp } from "config/firebase.config";
+import SplashScreen from "components/SplashScreen";
 
 interface ProductParams {
   id: string | number
@@ -30,11 +30,11 @@ export type ProductProps = NativeStackScreenProps<RootStackParamList, 'Product'>
 const { Screen, Navigator } = createNativeStackNavigator<RootStackParamList>();
 
 export function StackRoutes(){
-  const [isLogged,setIsLogged] = useState<'home' | 'signup' | undefined>();
+  const [isLogged,setIsLogged] = useState<'home' | 'login' | undefined>();
 
   useEffect(()=> {
     const unsubscriber = authApp.onAuthStateChanged(user => {
-      user ? setIsLogged('home') : setIsLogged('signup');
+      user ? setIsLogged('home') : setIsLogged('login');
     })
 
     return unsubscriber;
