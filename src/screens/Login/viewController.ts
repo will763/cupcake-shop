@@ -1,4 +1,4 @@
-import { useNavigation } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import { useEffect, useState } from "react";
 import { FormValues } from "./types";
 import useLoginViewModel from "./viewModels";
@@ -7,18 +7,29 @@ import { handleErrors, triggerError } from "components/LoginError";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from "react-hook-form";
 import { schema } from "./validation";
+import React from "react";
 
 const useLoginViewController = () => {
   const navigation = useNavigation();
 
   const { newLogin } = useLoginViewModel();
 
-  const { control, handleSubmit, formState: { errors } } = useForm<FormValues>({
+  const { control, handleSubmit, formState: { errors }, clearErrors, reset } = useForm<FormValues>({
     resolver: yupResolver(schema)
   });
 
+  useFocusEffect(
+    React.useCallback(() => {
+      const getData = () => {
+        clearErrors();
+        reset();
+      }
+      getData();
+    }, [])
+  );
+
   useEffect(() => {
-    errors && handleErrors(errors)
+    errors && handleErrors(errors);
   }, [errors])
 
   const [hide, setHide] = useState(true);
@@ -33,6 +44,7 @@ const useLoginViewController = () => {
 
     newLogin(email, password)
       .then(() => {
+        reset();
         LoginSuccess();
       })
       .catch(({ message }) => triggerError(message))
