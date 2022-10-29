@@ -75,8 +75,8 @@ export default function Login() {
             value={value} 
            />
            <TouchableOpacity onPress={()=> setHide(!hide)} >
-             { hide ? <Icon name="eye" size={18} /> 
-              : <Icon name="eye-slash" size={18} /> }
+             { hide ? <Icon name="eye-slash" size={18} /> 
+              : <Icon name="eye" size={18} /> }
            </TouchableOpacity>
           </InputContainer> 
          )}
