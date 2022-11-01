@@ -1,3 +1,3 @@
 import { auth } from "config/firebase.config";
 
-export type Login = auth.UserCredential;
+export type Login = Promise<auth.UserCredential>
