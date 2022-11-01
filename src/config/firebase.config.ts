@@ -1,7 +1,7 @@
 import * as firebase from "firebase/app";
 import * as auth from 'firebase/auth'
 import { getAuth } from "firebase/auth";
-import { collection, Firestore, getFirestore } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: process.env.API_KEY,
@@ -19,5 +19,8 @@ const app = firebase.initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 const authApp = getAuth(app);
+
+authApp.useDeviceLanguage();
+
 
 export { auth, authApp, db }
