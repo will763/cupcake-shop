@@ -24,8 +24,16 @@ import {
 import Logo from 'components/Logo'      
 import useLoginViewController from './viewController';
 import { Controller } from 'react-hook-form';
+import * as WebBrowser from 'expo-web-browser';
+import React, { useEffect } from 'react';
+import * as Google from 'expo-auth-session/providers/google';
+
+WebBrowser.maybeCompleteAuthSession();
 
 export default function Login() {
+  const [request, response, promptAsync] = Google.useIdTokenAuthRequest({
+        clientId: process.env.CLIENT_ID_KEY,
+    });
   
   const { 
     hide, 
@@ -33,9 +41,11 @@ export default function Login() {
     toSignup,  
     control,
     submitForm,
-    isLogging
+    isLogging,
+    useLogginWithGoogle
   } = useLoginViewController();
 
+  useLogginWithGoogle(response);
 
   return (
     <Container >
@@ -89,7 +99,7 @@ export default function Login() {
           <TextMissing>Forgot password?</TextMissing>
         </ForgoutPassword>
       </Form>
-      <LoginSocial>
+      <LoginSocial onPress={()=> {promptAsync()}}  disabled={!request}>
         <TextLoginSocial>Login with Google</TextLoginSocial>
       </LoginSocial>
       <SignupContent>
