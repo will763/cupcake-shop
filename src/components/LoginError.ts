@@ -6,6 +6,7 @@ type ObjectKey = keyof typeof loginErrorTypes;
 const loginErrorTypes = {
     "Firebase: Error (auth/user-not-found).": 'email not found',
     "Firebase: Error (auth/wrong-password).": 'wrong password',
+    "Firebase: Error (auth/invalid-email).": 'email must be a valid email',
     "invalid email": "email must be a valid email",
     "email required": "email is a required field",
     "password required": "password is a required field",
