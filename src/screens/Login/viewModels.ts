@@ -1,4 +1,5 @@
 import { auth, authApp } from "config/firebase.config";
+import { sendPasswordResetEmail } from "firebase/auth";
 import { Login } from "./model";
 
 const useLoginViewModel = () => {
@@ -11,9 +12,14 @@ const useLoginViewModel = () => {
         return auth.signInWithCredential(authApp, credential)
     }
 
+    async function updatePassword(email: string): Promise<void> {
+        return sendPasswordResetEmail(authApp, email)
+    }
+
     return {
         newLogin,
-        loginGoogleCredential
+        loginGoogleCredential,
+        updatePassword
     }
 }
 

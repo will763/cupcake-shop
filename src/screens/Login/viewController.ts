@@ -10,6 +10,7 @@ import { schema } from "./validation";
 import React from "react";
 import { GoogleAuthProvider } from "firebase/auth";
 import { AuthSessionResult } from "expo-auth-session";
+import { Alert } from "react-native";
 
 const useLoginViewController = () => {
   const navigation = useNavigation();
@@ -17,11 +18,13 @@ const useLoginViewController = () => {
   const [hide, setHide] = useState(true);
   const [isLogging, setisLogging] = useState(false);
 
-  const { newLogin, loginGoogleCredential } = useLoginViewModel();
+  const { newLogin, loginGoogleCredential, updatePassword } = useLoginViewModel();
 
-  const { control, handleSubmit, formState: { errors }, clearErrors, reset } = useForm<FormValues>({
+  const { control, handleSubmit, formState: { errors }, watch, clearErrors, reset } = useForm<FormValues>({
     resolver: yupResolver(schema)
   });
+
+  const { email } = watch();
 
   useFocusEffect(
     React.useCallback(() => {
@@ -60,6 +63,15 @@ const useLoginViewController = () => {
     navigation.navigate('signup');
   }
 
+  function resetPassword() {
+    updatePassword(email)
+      .then(() => {
+        Alert.alert('An email has been sent to you, please check your inbox.')
+        reset({ email: '' })
+      })
+      .catch(({ message }) => { triggerError(message) });
+  }
+
   function onSubmit({ email, password }: FormValues) {
     setisLogging(true);
 
@@ -83,7 +95,8 @@ const useLoginViewController = () => {
     submitForm,
     control,
     isLogging,
-    useLogginWithGoogle
+    useLogginWithGoogle,
+    resetPassword
   }
 }
 
