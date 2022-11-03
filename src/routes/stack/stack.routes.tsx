@@ -1,14 +1,14 @@
 import { createNativeStackNavigator, NativeStackScreenProps } from "@react-navigation/native-stack";
 
 import  Login from 'screens/Login/View'
-import  Signup from 'screens/Signup/view'
+import  Signup from 'screens/Signup/View'
 import { Feedback } from "screens/Feedback";
 import { RegisterProduct } from "screens/RegisterProduct";
 import { Product } from "screens/Product";
 import Drawer from '../drawer'
 
 import Logo from 'components/LogoDrawer'  
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { authApp } from "config/firebase.config";
 import SplashScreen from "components/SplashScreen";
 
