@@ -16,7 +16,6 @@ import {
 } from './styles';
 
 import {
-  Alert,
   KeyboardAvoidingView,
   ScrollView,
   TouchableOpacity
@@ -26,7 +25,7 @@ import Logo from 'components/Logo'
 import useLoginViewController from './viewController';
 import { Controller } from 'react-hook-form';
 import * as WebBrowser from 'expo-web-browser';
-import React, { useEffect } from 'react';
+import React from 'react';
 import * as Google from 'expo-auth-session/providers/google';
 
 WebBrowser.maybeCompleteAuthSession();
