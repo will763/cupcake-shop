@@ -21,6 +21,10 @@ const useSignupViewModel = () => {
         return auth.createUserWithEmailAndPassword(authApp, email, password)
     }
 
+    async function signupGoogleCredential(credential: auth.OAuthCredential): Promise<IRegister> {
+        return auth.signInWithCredential(authApp, credential)
+    }
+
     async function getRegisteredUsers(): Promise<UserRegistered> {
         const docs = await getDocs(collection(db, "user"));
 
@@ -36,7 +40,8 @@ const useSignupViewModel = () => {
     return {
         registerUsername,
         createNewUser,
-        getRegisteredUsers
+        getRegisteredUsers,
+        signupGoogleCredential
     }
 }
 

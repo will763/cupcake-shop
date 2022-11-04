@@ -1,10 +1,11 @@
 import React from 'react';
+import * as WebBrowser from 'expo-web-browser';
+import * as Google from 'expo-auth-session/providers/google';
 import { KeyboardAvoidingView, ScrollView, TouchableOpacity } from 'react-native';
 import { ContainerContent } from './styles';
 import { Container } from './styles';
 
 import Logo from 'components/Logo';
-
 import IconError from 'components/IconError'
 
 import { 
@@ -23,7 +24,12 @@ import {
 import useSignupViewController from './viewController';
 import { Controller } from 'react-hook-form';
 
+WebBrowser.maybeCompleteAuthSession();
+
 export default function Signup() {
+  const [request, response, promptAsync] = Google.useIdTokenAuthRequest({
+    clientId: process.env.CLIENT_ID_KEY,
+  });
 
   const {
     submitForm,
@@ -31,8 +37,12 @@ export default function Signup() {
     toLogin, 
     invalidUsername,
     control,
-    errors
+    errors,
+    isSignupping,
+    useSignupWithGoogle
   } = useSignupViewController();
+
+  useSignupWithGoogle(response)
 
   return (
     <Container>
@@ -109,11 +119,11 @@ export default function Signup() {
             )}
         />
         
-        <Button onPress={submitForm} >
+        <Button onPress={submitForm}  disabled={isSignupping} >
          <TextButton>Signup</TextButton>
         </Button>
        </Form>
-       <LoginSocial>
+       <LoginSocial onPress={() => { promptAsync() }} disabled={!request}>
         <TextLoginSocial>Login with Google</TextLoginSocial>
       </LoginSocial>
       <LoginContent>

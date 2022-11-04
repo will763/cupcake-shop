@@ -10,12 +10,16 @@ import useSignupViewModel from "./viewModels";
 
 import SignupSuccess from "components/SignupSuccess";
 import { handleSignupErrors, triggerSignupError } from "components/SignupError";
+import { AuthSessionResult } from "expo-auth-session";
+import { GoogleAuthProvider, OAuthCredential } from "firebase/auth";
 
 const useSignupViewController = () => {
     const navigation = useNavigation();
     const isFocused = useIsFocused();
 
-    const { registerUsername, createNewUser, getRegisteredUsers } = useSignupViewModel();
+    const [isSignupping, setIsSignupping] = useState(false);
+
+    const { registerUsername, createNewUser, getRegisteredUsers, signupGoogleCredential } = useSignupViewModel();
 
     const { control, handleSubmit, formState: { errors }, watch, clearErrors, reset } = useForm<FormValues>({
         resolver: yupResolver(schema),
@@ -53,6 +57,24 @@ const useSignupViewController = () => {
         navigation.navigate('login');
     }
 
+    function useSignupWithGoogle(response: AuthSessionResult | null) {
+        useEffect(() => {
+            if (response?.type === "success") {
+                setIsSignupping(true);
+                const { id_token } = response.params;
+                const credential = GoogleAuthProvider.credential(id_token);
+                signupGoogleCredential(credential)
+                    .then(() => {
+                        SignupSuccess();
+                        navigation.navigate('home');
+                    })
+                    .catch(({ message }) => triggerSignupError(message))
+                    .finally(() => setIsSignupping(false));
+
+            }
+        }, [response]);
+    }
+
     async function onSubmit({ username, email, password, confirmPassword }: FormValues) {
         await createNewUser(email, password)
             .then(async () => {
@@ -75,9 +97,15 @@ const useSignupViewController = () => {
         toLogin,
         submitForm,
         control,
-        errors
+        errors,
+        isSignupping,
+        useSignupWithGoogle
     }
 
 }
 
 export default useSignupViewController;
+
+function signupGoogleCredential(credential: OAuthCredential) {
+    throw new Error("Function not implemented.");
+}
