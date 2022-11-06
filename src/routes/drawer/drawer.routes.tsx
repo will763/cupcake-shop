@@ -1,21 +1,21 @@
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { Contact } from '../../screens/Contact';
-import { CustomizeOrder } from '../../screens/CustomizeOrder';
-import { Doubts } from '../../screens/Doubts';
-import { Home } from '../../screens/Home';
-import {Admin} from '../../screens/Admin'
+import { Contact } from 'screens/Contact';
+import { CustomizeOrder } from 'screens/CustomizeOrder';
+import { Doubts } from 'screens/Doubts';
+import { Home } from 'screens/Home/View';
+import {Admin} from 'screens/Admin'
 
 import { FontAwesome } from '@expo/vector-icons'; 
 
-import Logo from '../../components/LogoDrawer'  
-import IconContact from '../../components/IconContact'
-import IconDoubt from '../../components/IconDoubt';
-import IconCupcake from '../../components/IconCupcake';
-import IconAdmin from '../../components/IconAdmin'
-import DrawerBackground from '../../components/DrawerBackground';
+import Logo from 'components/LogoDrawer'  
+import IconContact from 'components/IconContact'
+import IconDoubt from 'components/IconDoubt';
+import IconCupcake from 'components/IconCupcake';
+import IconAdmin from 'components/IconAdmin'
+import DrawerBackground from 'components/DrawerBackground';
+import Logout from 'components/Logout';
 
-const {Navigator, Screen} = createDrawerNavigator();
-
+const {Navigator, Screen } = createDrawerNavigator();
 
 export function DrawerRoutes() {
   return (
@@ -24,6 +24,7 @@ export function DrawerRoutes() {
       headerTransparent:true,
       headerBackground: () => <DrawerBackground /> ,
       headerTitle: () => <Logo />,
+      drawerIcon: () => <Logout />
     }} >
       <Screen 
        name="Home" 
