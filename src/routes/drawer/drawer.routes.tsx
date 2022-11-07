@@ -1,6 +1,6 @@
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { Contact } from 'screens/Contact';
-import { CustomizeOrder } from 'screens/CustomizeOrder';
+import { CustomizeOrder } from 'screens/CustomizeOrder/View';
 import { Doubts } from 'screens/Doubts';
 import { Home } from 'screens/Home/View';
 import {Admin} from 'screens/Admin'
