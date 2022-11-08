@@ -1,9 +1,9 @@
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { Contact } from 'screens/Contact';
 import { CustomizeOrder } from 'screens/CustomizeOrder/View';
-import { Doubts } from 'screens/Doubts';
+import { Doubts } from 'screens/Doubts/View';
 import { Home } from 'screens/Home/View';
-import {Admin} from 'screens/Admin'
+import { Admin } from 'screens/Admin'
 
 import { FontAwesome } from '@expo/vector-icons'; 
 
