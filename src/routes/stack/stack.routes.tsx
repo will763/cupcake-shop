@@ -3,8 +3,7 @@ import { createNativeStackNavigator, NativeStackScreenProps } from "@react-navig
 import  Login from 'screens/Login/View'
 import  Signup from 'screens/Signup/View'
 import { Feedback } from "screens/Feedback/View";
-import { RegisterProduct } from "screens/RegisterProduct";
-import { Product } from "screens/Product";
+import { Product } from "screens/Product/View";
 import Drawer from '../drawer'
 
 import Logo from 'components/LogoDrawer'  
