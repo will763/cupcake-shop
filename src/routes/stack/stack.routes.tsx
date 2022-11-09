@@ -81,15 +81,6 @@ export function StackRoutes(){
             />
 
             <Screen
-              name="RegisterProduct"
-              component={RegisterProduct}
-              options={{
-                headerTitleAlign:'center',
-                headerTitle: () => <Logo />,
-              }}
-            />
-
-            <Screen
               name="Product"
               component={Product}
               options={{
