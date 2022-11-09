@@ -6,7 +6,7 @@ export const Container = styled.SafeAreaView`
 `;
 
 export const ContainerContent = styled.View`
-  margin-top:15% ;
+  margin-top:28% ;
   align-items:center ;
 `;
 
