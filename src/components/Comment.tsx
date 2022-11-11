@@ -3,8 +3,6 @@ import { View, StyleSheet, Image, Text } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons'; 
 
 
-import UserIcon from '../components/UserIcon'
-
 interface Props {
     text: string
 }
