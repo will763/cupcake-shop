@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Copy the component rendered 1`] = `
+<RNSVGSvgView
+  bbHeight={26}
+  bbWidth={20}
+  fill="none"
+  focusable={false}
+  height={26}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+        "borderWidth": 0,
+      },
+      Object {
+        "flex": 0,
+        "height": 26,
+        "width": 20,
+      },
+    ]
+  }
+  width={20}
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <RNSVGGroup
+    fill={null}
+    propList={
+      Array [
+        "fill",
+      ]
+    }
+  >
+    <RNSVGPath
+      d="M14.737 0H2.105C.947 0 0 1.064 0 2.364v16.545h2.105V2.364h12.632V0Zm3.158 4.727H6.315c-1.157 0-2.104 1.064-2.104 2.364v16.545c0 1.3.947 2.364 2.105 2.364h11.579C19.053 26 20 24.936 20 23.636V7.091c0-1.3-.947-2.364-2.105-2.364Zm0 18.91H6.315V7.09h11.58v16.545Z"
+      fill={4278190080}
+      fillOpacity={0.7}
+      propList={
+        Array [
+          "fill",
+          "fillOpacity",
+        ]
+      }
+    />
+  </RNSVGGroup>
+</RNSVGSvgView>
+`;
