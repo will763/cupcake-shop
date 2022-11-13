@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 
 interface Props {
-    id: number
-    url:string
+  id: number
+  url:string
 }
 
 
@@ -22,6 +22,7 @@ export default function({id,url}: Props) {
   
   return (
     <Pressable 
+     accessibilityLabel='card-wrapper'
      style={style.card} 
      onPressIn={() => setOverlay(true)}
      onPressOut={() => setOverlay(false)}
