@@ -6,7 +6,7 @@ import Copy from '../Copy'
 describe('Copy', ()=>{
 
     it('the component rendered', ()=> {
-        const { debug } = render(<Copy />);
+        const { debug,  } = render(<Copy />);
         debug();
     })
 
