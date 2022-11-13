@@ -4,7 +4,7 @@ import SkeletonLoading from './SkeletonLoading';
 
 export default function() {
   return (
-    <View style={styles.container}>
+    <View accessibilityLabel='parent-skeleton' style={styles.container}>
      <SkeletonLoading height={10} width={250} maxWidth={250} />
      <SkeletonLoading height={10} width={250} maxWidth={250} />
      <SkeletonLoading height={10} width={240} maxWidth={250} />
