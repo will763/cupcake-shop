@@ -4,7 +4,7 @@ import { FontAwesome } from '@expo/vector-icons';
 
 
 interface Props {
-    text: string
+  text: string
 }
 
 export default function({text}:Props) {
