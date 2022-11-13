@@ -14,6 +14,7 @@ export default function() {
 
   return (
     <TouchableOpacity 
+      accessibilityLabel='feedback-button'
       style={styles.container} 
       onPress={toFeedback}
     >
