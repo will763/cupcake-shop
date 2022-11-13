@@ -3,7 +3,7 @@ import { Modal, StyleSheet, View } from 'react-native';
 import * as Progress from 'react-native-progress';
 
 interface Props {
-    uploading: boolean;
+  uploading: boolean;
 }
 
 export default function({uploading}:Props) {
