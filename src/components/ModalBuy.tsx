@@ -59,7 +59,7 @@ export default function({isVisible, cancel}: Props) {
             />
             :
             <View style={[styles.options, {backgroundColor: payStatus !== null ? 'white' : "#50C878"}]}>
-            <TouchableOpacity onPress={buy} style={styles.fieldOption} >
+            <TouchableOpacity accessibilityLabel='payment-credit' onPress={buy} style={styles.fieldOption} >
              <Text style={styles.textOption}>Credit</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={buy} style={styles.fieldOption} >
