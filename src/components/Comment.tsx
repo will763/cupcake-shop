@@ -13,7 +13,7 @@ export default function({text}:Props) {
       <View style={styles.photo}>
        <FontAwesome name="user-circle-o" size={32} color="black" />
       </View>
-      <Text style={styles.text} >{text}</Text>
+      <Text accessibilityLabel='comment-text' style={styles.text} >{text}</Text>
     </View>
   );
 }
