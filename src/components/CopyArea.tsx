@@ -38,7 +38,7 @@ export default function({text, type}: Props) {
   }
 
   return (
-    <TouchableOpacity onPress={handleCopy} >
+    <TouchableOpacity accessibilityLabel='container-parent' onPress={handleCopy} >
      { isCopied ? <CopySuccess />
        : <CopyDefault />  }
     </TouchableOpacity>
