@@ -36,4 +36,3 @@ I learned to create routes with React Navigation , I learned and applied the MVV
 ## Author 🙋‍♂️
 
 - Linkedin : [William Lisboa](https://www.linkedin.com/in/william-k-lisboa/) 
-
