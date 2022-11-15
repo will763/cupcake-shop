@@ -1,5 +1,5 @@
 # cupcake-shop 🧁
-
+ 
 ![GitHub repo size](https://img.shields.io/github/repo-size/will763/cupcake-shop?style=for-the-badge)
 ![GitHub language count](https://img.shields.io/github/languages/count/will763/cupcake-shop?style=for-the-badge)
 ![GitHub forks](https://img.shields.io/github/forks/will763/cupcake-shop?style=for-the-badge)
@@ -20,3 +20,11 @@ In this semester of college during the PIT (Integrating Transdisciplinary Projec
  - React Native Testing Library :heavy_check_mark: 
  - Jest :heavy_check_mark:
  - MVVM :heavy_check_mark: 
+
+## App Screenshots
+
+|             | Android |
+| ----------- | ----------- |
+| Login Screen| ![login](https://user-images.githubusercontent.com/66382974/201799408-75c981d5-fe05-4074-96cd-07bb1149f583.png) |
+| Product Screen |  ![product](https://user-images.githubusercontent.com/66382974/201800004-b2a5f444-813e-402a-a4db-1d5695480fff.png) |
+| Home Screen   |  ![home](https://user-images.githubusercontent.com/66382974/201799877-251ca576-3927-4761-a845-528a7217eadb.png)      |
