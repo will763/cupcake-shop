@@ -29,6 +29,9 @@ In this semester of college during the PIT (Integrating Transdisciplinary Projec
 | Product Screen |  ![product](https://user-images.githubusercontent.com/66382974/201800004-b2a5f444-813e-402a-a4db-1d5695480fff.png) |
 | Home Screen   |  ![home](https://user-images.githubusercontent.com/66382974/201799877-251ca576-3927-4761-a845-528a7217eadb.png)      |
 
+## What I learned 🧑‍💻
+
+I learned to create routes with React Navigation , I learned and applied the MVVM design pattern to my screens to make the application scalable, I learned to use Google firebase to create the application's backend. I learned to run tests on the frontend with jest and React Native Test Library. I learned to manage form state and do validations with yup.
 
 ## Author 🙋‍♂️
 
