@@ -8,6 +8,11 @@
 
 In this semester of college during the PIT (Integrating Transdisciplinary Project in Computer Science) a project was proposed to develop an MVP (Minimum Viable Product) for a fictitious store that sells Cupcakes.
 
+## documentation and app :book:
+
+ - click here to download the Documentation.
+ - click here to download the App.
+ 
 ## technologies 🚀
 
  - Expo :heavy_check_mark:
