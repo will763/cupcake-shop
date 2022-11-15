@@ -28,3 +28,9 @@ In this semester of college during the PIT (Integrating Transdisciplinary Projec
 | Login Screen| ![login](https://user-images.githubusercontent.com/66382974/201799408-75c981d5-fe05-4074-96cd-07bb1149f583.png) |
 | Product Screen |  ![product](https://user-images.githubusercontent.com/66382974/201800004-b2a5f444-813e-402a-a4db-1d5695480fff.png) |
 | Home Screen   |  ![home](https://user-images.githubusercontent.com/66382974/201799877-251ca576-3927-4761-a845-528a7217eadb.png)      |
+
+
+## Author 🙋‍♂️
+
+- Linkedin : [William Lisboa](https://www.linkedin.com/in/william-k-lisboa/) 
+
